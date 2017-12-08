@@ -4,7 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from model_utils.fields import AutoCreatedField, AutoLastModifiedField
 
 from . model_fields import PositiveTinyIntegerField
-from .. import settings as app_settings
+#from .. import settings as app_settings
 
 
 class TimeStampedEditableModel(models.Model):
@@ -57,7 +57,7 @@ class LdapOcMappings(TimeStampedEditableModel):
                             )
     create_proc = models.CharField(verbose_name=_('on create'),
                           max_length=255,
-                          null=True, blank=True, default=None
+                          null=True, blank=True, default=None,
                           help_text='the SQL code when an LDAP create is called')
     delete_proc = models.CharField(verbose_name=_('on delete'),
                           max_length=255,
@@ -83,7 +83,7 @@ class LdapAttrMappings(TimeStampedEditableModel):
                           help_text='refers back to the id of the relevant '
                           'objectClass in the ldap_oc_mappings table')
     name = models.CharField(verbose_name=_('name'),
-                            max_length=255
+                            max_length=255,
                             help_text='the LDAP attribute name'
                             )
     sel_expr = models.CharField(verbose_name=_('SELECT expr'),
