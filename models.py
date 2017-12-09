@@ -19,37 +19,45 @@ class TimeStampedEditableModel(models.Model):
         abstract = True
 
 
-class Org(TimeStampedEditableModel):
-    o = models.CharField(verbose_name=_('Organization'),
-                                max_length=254,
-                                db_index=True)
-    dc = models.CharField(verbose_name=_('Domain Component'), max_length=254)
+# class Org(TimeStampedEditableModel):
+    # o = models.CharField(verbose_name=_('Organization'),
+                                # max_length=254,
+                                # db_index=True)
+    # dc = models.CharField(verbose_name=_('Domain Component'), max_length=254)
+# 
+    # class Meta:
+        # db_table = 'org'
+        # verbose_name = _('Org')
+        # verbose_name_plural = _('Orgs')
+# 
+    # def __str__(self):
+        # return self.dc
 
-    class Meta:
-        db_table = 'org'
-        verbose_name = _('Org')
-        verbose_name_plural = _('Orgs')
 
-    def __str__(self):
-        return self.dc
-
-
-class LdapOcMappings(TimeStampedEditableModel):
+class LdapOcMapping(TimeStampedEditableModel):
     """
         objectClass to table map
+        objectClass mappings: these may be viewed as structuralObjectClass, 
+        the ones that are used to decide how to build an entry
     """
     name = models.CharField(verbose_name=_('name'),
                                 max_length=64,
-                                db_index=True)
+                                db_index=True,
+                                help_text='the name of the objectClass; '
+                                          'it MUST match the name of an '
+                                          'objectClass that is loaded in '
+                                          'slapd\'s schema')
     # qui popolare keytbl e keycol con un methodo che tratta
     # le generic relations di django content types
     keytbl = models.CharField(
                             verbose_name=_('key table'),
-                            max_length=255, help_text='the table where '
-                            'entities for the objectClass are held. '
-                            'Ex: inetOrgPerson is for identifying people, '
-                            'so it uses the persons table if desidered'
-                            )
+                            max_length=255, 
+                            help_text='the table where '
+                                      'entities for the objectClass are held. '
+                                      'The name of the table that is referenced '
+                                      'for the primary key of an entry')
+    # the name of the column in "keytbl" that contains the primary key of an entry; 
+    # the pair "keytbl.keycol" uniquely identifies an entry of objectClass "id"
     keycol = models.CharField(
                             verbose_name=_('key table'),
                             max_length=255,
@@ -75,13 +83,16 @@ class LdapOcMappings(TimeStampedEditableModel):
     def __str__(self):
         return '{} - {}'.format(self.keytbl, self.keycol)
 
-class LdapAttrMappings(TimeStampedEditableModel):
+
+class LdapAttrMapping(TimeStampedEditableModel):
     """
         Field definitions map (table colum = ldap type)
+        attributeType mappings: describe how an attributeType for a 
+        certain objectClass maps to the SQL data.
     """
-    oc_map_id = PositiveTinyIntegerField(verbose_name=_('oc map id'),
-                          help_text='refers back to the id of the relevant '
-                          'objectClass in the ldap_oc_mappings table')
+    oc_map = models.ForeignKey(LdapOcMapping, 
+                               help_text='refers back to the id of the relevant '
+                                         'objectClass in the ldap_oc_mappings table')
     name = models.CharField(verbose_name=_('name'),
                             max_length=255,
                             help_text='the LDAP attribute name'
@@ -128,3 +139,54 @@ class LdapAttrMappings(TimeStampedEditableModel):
 
     def __str__(self):
         return '{} - {}'.format(self.name, self.sel_expr)
+
+
+class LdapEntry(TimeStampedEditableModel):
+    """
+      entries mapping: each entry must appear in this table, with a 
+      unique DN rooted at the database naming context
+    """
+    dn = models.CharField(verbose_name=_('Distingieshed names'),
+                          max_length=254, unique=True)
+    oc_map = models.ForeignKey(LdapOcMapping, 
+                               help_text='refers back to the id of the relevant '
+                                         'objectClass in the ldap_oc_mappings table')
+    parent = models.IntegerField(help_text='what level in the LDAP tree this is '
+                                           'located at, starting with 0 (zero)')
+    keyval = models.IntegerField(help_text='refers back to the id of '
+                                           'the relevant row of the table the data is '
+                                           'contained in. These rows are identified by '
+                                           'a number that is a primary key')
+    
+    class Meta:
+        db_table = 'ldap_entries'
+        unique_together = ('oc_map', 'keyval')
+        verbose_name = _('Ldap entry')
+        verbose_name_plural = _('Ldap entries')
+
+    def __str__(self):
+        return self.dn
+
+
+class LdapEntriesObjectClasses(TimeStampedEditableModel):
+    """
+      entries mapping: each entry must appear in this table, with a 
+      unique DN rooted at the database naming context
+    """
+    
+    entry = models.ForeignKey(LdapEntry, 
+                               help_text='refers back to the id of the relevant '
+                                         'objectClass in the ldap_oc_mappings table')
+    oc_name = models.CharField(verbose_name=_('ObjectClass name'),
+                          max_length=254, 
+                          help_text='the name of the objectClass; it MUST match the '
+                                    'name of an objectClass that is loaded in '
+                                    'slapd\'s schema')
+    
+    class Meta:
+        db_table = 'ldap_entry_objclasses'
+        verbose_name = _('Ldap entry objectclass')
+        verbose_name_plural = _('Ldap entry objectclasses')
+
+    def __str__(self):
+        return self.entry
