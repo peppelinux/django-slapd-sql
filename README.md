@@ -1,6 +1,6 @@
 Django-slapd-sql
 ----------------
-Aims to provide a usable setup of an OpenLDAP server with SQL storage, to present informations stored in a RDBMS as an LDAP subtree. The benefits of this approach could be summarized as follow:
+Django-slapd-sql aims to provide a usable setup of an OpenLDAP server with SQL storage, to present informations stored in a RDBMS as an LDAP subtree. The benefits of this approach could be summarized as follow:
 
 - Get a working OpenLDAP server, ready to use with:
     - adeguate security by default;
