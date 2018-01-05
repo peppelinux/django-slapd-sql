@@ -30,11 +30,9 @@ A list of good things about all this:
 
 Resources
 ---------
-https://linux.die.net/man/5/slapd-sql
-
-http://www.openldap.org/faq/data/cache/378.html
-
-https://github.com/openldap/openldap/tree/master/servers/slapd/back-sql/rdbms_depend/mysql
+- https://linux.die.net/man/5/slapd-sql
+- http://www.openldap.org/faq/data/cache/378.html
+- https://github.com/openldap/openldap/tree/master/servers/slapd/back-sql/rdbms_depend/mysql
 
 
 Status
