@@ -1,6 +1,6 @@
 Django-slapd-sql
 ----------------
-Django-slapd-sql aims to provide a usable setup of an OpenLDAP server with SQL storage, to present informations stored in a RDBMS as an LDAP subtree. The benefits of this approach could be summarized as follow:
+Django-slapd-sql aims to provide an usable setup of an OpenLDAP server with SQL storage, it present informations stored in a RDBMS as an LDAP subtree according to the mapped attributesconfigured via Django Admin. Its goal is:
 
 - Get a working OpenLDAP server, ready to use with:
     - adeguate security by default;
@@ -24,13 +24,16 @@ OpenLDAP setup can also be provided by another ansible-application, repository i
 https://github.com/peppelinux/ansible-slapd-eduperson2016
 
 
-Other good features and improvements
-------------------------------------
-A list of good things about all this:
-- ldap3 auth backend
+Other good features, integrations and improvements
+--------------------------------------------------
+- ldap3 auth backend: 
+      - https://github.com/etianen/django-python3-ldap, no ldap sync;
+      - https://bitbucket.org/psagers/django-auth-ldap/
+      - 
+- 
 - backup and restore procedures working in SQL, JSON and LDIF format;
 - realtime web monitor over slapd-monitor backend;
-
+- syncrepl: https://github.com/akkornel/syncrepl;
 
 Resources
 ---------
@@ -38,6 +41,10 @@ Resources
 - http://www.openldap.org/faq/data/cache/378.html
 - https://github.com/openldap/openldap/tree/master/servers/slapd/back-sql/rdbms_depend/mysql
 
+Interesting/related stuffs:
+- https://github.com/futurice/futurice-ldap-user-manager
+- https://github.com/django-ldapdb/django-ldapdb (alternative to)
+- https://www.python-ldap.org/en/latest/ (Wonderfull)
 
 Status
 ------
