@@ -44,6 +44,7 @@ Interesting/related stuffs:
 - https://github.com/futurice/futurice-ldap-user-manager (nice)
 - https://github.com/django-ldapdb/django-ldapdb (alternative not usefull but interesting)
 - https://www.python-ldap.org/en/latest/ (Wonderfull)
+- https://pypi.python.org/pypi/ldappool/1.0 (LDAP pools for foreign connections)
 
 Status
 ------
