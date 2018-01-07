@@ -20,7 +20,7 @@ Slapd-sql is not a "standard" OpenLDAP backend like MDB, BDB or HDB, it can be u
 
 OpenLDAP setup 
 --------------
-OpenLDAP setup can also be provided by another ansible-application, repository is:
+OpenLDAP setup can also be provided by another ansible-application:
 https://github.com/peppelinux/ansible-slapd-eduperson2016
 
 
