@@ -1,16 +1,16 @@
 Django-slapd-sql
 ----------------
-Django-slapd-sql aim to provide an usable setup and a manamgent interface for OpenLDAP with SQL as storage (slapd-sql), it present informations stored in a RDBMS as an LDAP subtree, according to the mapped attributes configured via Django Admin. Its also:
+Django-slapd-sql aim to provide a management interface to OpenLDAP with SQL storage backend (slapd-sql), it present informations stored in a RDBMS as a LDAP subtree, according to the mapped attributes configured via Django Admin. Its also:
 
-- Get a working OpenLDAP server, ready to use with:
+- Get a working OpenLDAP server through ansible, ready to use with:
     - adeguate security by default (SASL/TLS and ACL);
     - memberof and ppolicy overlays configured for identity management case of use;
     - SQL storage backend configured for MariaDB (adaptable for PostgreSQL) instead of MDB, HDB or BDB;
-- Get a Django Admin backend to map LDAP to SQL schemas and attributes;
+- Get a Django Admin backend to map LDAP to SQL schemas and attributes with Django Generic Relations;
 - Manage the same data using http://, https://, ldaps:// without any replica or scheduled syncronization;
 - Permits us to query data stored in a legacy RDBMS through LDAP (slapd-sql) and viceversa (Django views);
 
-Django and OpenLDAP will read and write both on the same storage: SQL. Systems will work together on the same storage with the goal to decrease management costs, specially for smart business solutions. This app is for who doesn't want to mind about LDAP too much but still need of it, looking for a fast and ready to use solution.
+Django and OpenLDAP will read and write both on the same storage: SQL. Systems will work both on the same storage with the goal to decrease management tasks, specially for smart business solutions. This app is for who doesn't want to worry about LDAP too much but still need of it, looking for a fast and ready to use solution.
 
 
 Slapd-sql
