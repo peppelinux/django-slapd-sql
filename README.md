@@ -11,12 +11,12 @@ Django-slapd-sql aim to provide a management interface to OpenLDAP with SQL stor
 - Manage the same data using http://, https://, ldaps:// without any replica or scheduled syncronization;
 - Permit us to query data stored in a legacy RDBMS through LDAP (slapd-sql) and viceversa (Django views);
 
-Django and OpenLDAP will read and write both on the same storage: SQL. Systems will work both on the same boat with the goal to decrease management tasks, specially for smart business solutions. This app is for who doesn't want to worry about LDAP too much but know that they still need of it.
+Django and OpenLDAP will read and write both on the same storage: SQL. Systems will work both on the same boat with the goal to decrease management tasks, specially for smart business solutions. This app is for who doesn't want to worry about LDAP too much but still knows that they need it.
 
 
 Slapd-sql
 ---------
-Slapd-sql is not a "standard" OpenLDAP backend like MDB, BDB or HDB, it can be used when you have account informations in a RDBMS, all or just some of them, and you want to get these through LDAP. In a OpenLDAP server many data sources can be configured to work at the same time, SQL is one of these. SQL backend is designed to be tunable to virtually any relational schemas without having to change source (through meta-information). It also uses ODBC to connect to RDBMSes and is highly configurable for the SQL dialects that RDBMSes may use, indeed it may be used for integration and distribution of data on different RDBMSes, OSes, hosts etc., in other words, in a high heterogeneous environment.
+Slapd-sql is not a "standard" OpenLDAP backend like MDB, BDB or HDB, it can be used when you have account informations in a RDBMS, all the informations or just some of them, and you want to get these through LDAP protocol. In a OpenLDAP server many data sources can be configured to work together at the same time, SQL is one of these. SQL backend is designed to be tunable to virtually any relational schemas without having to change source (through meta-information). It also uses ODBC to connect to RDBMSes and is highly configurable for the SQL dialects that RDBMSes may use, indeed it may be used for integration and distribution of data on different RDBMSes, OSes, hosts etc., in other words, in a high heterogeneous environment.
 
 OpenLDAP setup 
 --------------
