@@ -1,6 +1,6 @@
 Django-slapd-sql
 ----------------
-Django-slapd-sql aim to provide a management interface to OpenLDAP with SQL storage backend (slapd-sql), it present informations stored in a RDBMS as a LDAP subtree, according to the mapped attributes configured via Django Admin. With it you can:
+Django-slapd-sql aim to provide a management interface to OpenLDAP with SQL storage backend (slapd-sql), it present informations stored in a RDBMS as a LDAP subtree, according to the mapped attributes configured via Django Admin. With its help we can:
 
 - Get a working OpenLDAP server through ansible role, ready to use with:
     - adeguate security by default (SASL/TLS and ACL);
@@ -40,7 +40,7 @@ Resources
 - http://www.openldap.org/faq/data/cache/378.html
 - https://github.com/openldap/openldap/tree/master/servers/slapd/back-sql/rdbms_depend/mysql
 
-Interesting/related stuffs:
+Other interesting and related stuffs:
 - https://github.com/futurice/futurice-ldap-user-manager (nice)
 - https://github.com/django-ldapdb/django-ldapdb (alternative not usefull but interesting)
 - https://www.python-ldap.org/en/latest/ (Wonderfull)
