@@ -26,9 +26,10 @@ https://github.com/peppelinux/ansible-slapd-eduperson2016
 
 Other good features, integrations and improvements
 --------------------------------------------------
-- ldap3 auth backend
-      - https://github.com/etianen/django-python3-ldap, no ldap sync
-      - https://bitbucket.org/psagers/django-auth-ldap/ 
+ldap3 auth backend
+- https://github.com/etianen/django-python3-ldap, no ldap sync
+- https://bitbucket.org/psagers/django-auth-ldap/ 
+
 - backup and restore procedures working in SQL, JSON and LDIF format;
 - realtime web monitor over slapd-monitor backend;
 - syncrepl: https://github.com/akkornel/syncrepl;
@@ -39,6 +40,7 @@ Resources
 - https://linux.die.net/man/5/slapd-sql
 - http://www.openldap.org/faq/data/cache/378.html
 - https://github.com/openldap/openldap/tree/master/servers/slapd/back-sql/rdbms_depend/mysql
+- https://www.darold.net/projects/ldap_pg/HOWTO/x178.html
 
 Other interesting and related stuffs:
 - https://github.com/futurice/futurice-ldap-user-manager (nice)

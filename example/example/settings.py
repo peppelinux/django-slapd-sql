@@ -80,10 +80,11 @@ DATABASES = {
         'NAME': 'slapd',
         'USER': 'slapd',
         'PASSWORD': 'slapdsecret',
-        'HOST': '10.87.7.124',   # Or an IP Address that your DB is hosted on
+        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
 }
+
 
 
 # Password validation
