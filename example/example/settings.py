@@ -124,3 +124,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LDAP_AUTH_URL='ldaps://ldap.testunical.it'
+# LDAP_CA_CERT='example/example/certs/testunical.slapd-cacert.pem'
+LDAP_BASEDN='dc=testunical,dc=it'
+LDAP_USER='cn=admin,{}'.format(LDAP_BASEDN)
+LDAP_PASS='slapdsecret'

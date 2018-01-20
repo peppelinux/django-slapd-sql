@@ -125,7 +125,7 @@ class LdapEntry(TimeStampedEditableModel):
       entries mapping: each entry must appear in this table, with a 
       unique DN rooted at the database naming context
     """
-    dn = models.CharField(verbose_name=_('Distingieshed names'),
+    dn = models.CharField(verbose_name=_('Distinguished names'),
                           max_length=254, unique=True)
     oc_map = models.ForeignKey(LdapOcMapping, 
                                help_text='refers back to the id of the relevant '
