@@ -26,6 +26,9 @@ https://github.com/peppelinux/ansible-slapd-eduperson2016
 
 Other good features, integrations and improvements
 --------------------------------------------------
+ldap models backend
+- https://github.com/django-ldapdb/django-ldapdb
+
 ldap3 auth backend
 - https://github.com/etianen/django-python3-ldap, no ldap sync
 - https://bitbucket.org/psagers/django-auth-ldap/ 
