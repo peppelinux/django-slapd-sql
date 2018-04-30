@@ -23,6 +23,27 @@ OpenLDAP setup
 OpenLDAP setup can also be provided by another ansible-application:
 https://github.com/peppelinux/ansible-slapd-eduperson2016
 
+[TODO] SQL as Database backend
+------------------------------
+slapd-config sql attributes:
+https://github.com/openldap/openldap/blob/master/servers/slapd/back-sql/config.c#L74
+
+
+- create an ldif to ldapadd, eg:
+````
+dn: olcDatabase=sql,cn=config
+objectClass: olcDatabaseConfig
+objectClass: olcSqlConfig
+olcSuffix: dc=test
+olcDatabase: sql
+olcDbName: ldap
+olcDbPass: ldap
+olcDbUser: ldap
+olcSqlSubtreeCond: "ldap_entries.dn LIKE CONCAT('%',?)"
+olcSqlInsEntryStmt: "INSERT INTO ldap_entries (dn,oc_map_id,parent,keyval) VALUES (?,?,?,?)"
+olcSqlHasLDAPinfoDnRu: no
+````
+- create some conditionals in slapd role to manage this feature
 
 Other good features, integrations and improvements
 --------------------------------------------------
