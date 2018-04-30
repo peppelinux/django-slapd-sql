@@ -11,7 +11,7 @@ Django-slapd-sql aim to provide a management interface to OpenLDAP with SQL stor
 - Manage the same data using http://, https://, ldaps:// without any replica or scheduled syncronization;
 - Permit us to query data stored in a legacy RDBMS through LDAP (slapd-sql) and viceversa (Django views);
 
-Django and OpenLDAP will read and write both on the same storage: SQL. Systems will work both on the same boat with the goal to decrease management tasks, specially for smart business solutions. This app is for who doesn't want to worry about LDAP too much but still knows that they need it.
+OpenLDAP will read and NOT write on SQL.
 
 
 Slapd-sql
