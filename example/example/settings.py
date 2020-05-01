@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'slapd',
         'USER': 'slapd',
         'PASSWORD': 'slapdsecret',
-        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'HOST': '10.0.3.55',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
         'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"}
     }
