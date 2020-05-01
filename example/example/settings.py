@@ -82,10 +82,9 @@ DATABASES = {
         'PASSWORD': 'slapdsecret',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
+        'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"}
     }
 }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -108,25 +107,20 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
 STATIC_URL = '/static/'
 
+# slapd_sql related
 LDAP_AUTH_URL='ldaps://ldap.testunical.it'
-# LDAP_CA_CERT='example/example/certs/testunical.slapd-cacert.pem'
+#LDAP_CA_CERT='example/example/certs/testunical.slapd-cacert.pem'
 LDAP_BASEDN='dc=testunical,dc=it'
 LDAP_USER='cn=admin,{}'.format(LDAP_BASEDN)
 LDAP_PASS='slapdsecret'

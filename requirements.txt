@@ -1,0 +1,8 @@
+django>2.2,<4.0
+mysqlclient
+ldap3
+
+#django_extensions
+#django-guardian
+#django-x509
+

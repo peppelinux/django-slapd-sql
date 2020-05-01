@@ -1,7 +1,6 @@
 from django.db import models
 from django.utils.timezone import now
 from django.utils.translation import ugettext_lazy as _
-from model_utils.fields import AutoCreatedField, AutoLastModifiedField
 #from .. import settings as app_settings
 
 
@@ -10,8 +9,8 @@ class TimeStampedEditableModel(models.Model):
     An abstract base class model that provides self-updating
     ``created`` and ``modified`` fields.
     """
-    created = AutoCreatedField(_('created'), editable=True)
-    modified = AutoLastModifiedField(_('modified'), editable=True)
+    created = models.DateTimeField(_('created'), auto_now_add=True)
+    modified = models.DateTimeField(_('modified'), auto_now=True)
 
     class Meta:
         abstract = True
@@ -71,7 +70,8 @@ class LdapAttrMapping(TimeStampedEditableModel):
     """
     oc_map = models.ForeignKey(LdapOcMapping, 
                                help_text='refers back to the id of the relevant '
-                                         'objectClass in the ldap_oc_mappings table')
+                                         'objectClass in the ldap_oc_mappings table',
+                               on_delete = models.CASCADE)
     name = models.CharField(verbose_name=_('name'),
                             max_length=255,
                             help_text='the LDAP attribute name'
@@ -129,7 +129,8 @@ class LdapEntry(TimeStampedEditableModel):
                           max_length=254, unique=True)
     oc_map = models.ForeignKey(LdapOcMapping, 
                                help_text='refers back to the id of the relevant '
-                                         'objectClass in the ldap_oc_mappings table')
+                                         'objectClass in the ldap_oc_mappings table',
+                               on_delete=models.CASCADE)
     parent = models.IntegerField(help_text='what level in the LDAP tree this is '
                                            'located at, starting with 0 (zero)')
     keyval = models.IntegerField(help_text='refers back to the id of '
@@ -154,8 +155,9 @@ class LdapEntriesObjectClasses(TimeStampedEditableModel):
     """
     
     entry = models.ForeignKey(LdapEntry, 
-                               help_text='refers back to the id of the relevant '
-                                         'objectClass in the ldap_oc_mappings table')
+                              help_text='refers back to the id of the relevant '
+                                         'objectClass in the ldap_oc_mappings table',
+                              on_delete=models.CASCADE)
     oc_name = models.CharField(verbose_name=_('ObjectClass name'),
                           max_length=254, 
                           help_text='the name of the objectClass; it MUST match the '
