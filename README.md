@@ -168,12 +168,14 @@ Resources
 - https://linux.die.net/man/5/slapd-sql
 - http://www.openldap.org/faq/data/cache/378.html
 - https://tylersguides.com/guides/openldap-online-configuration-reference/
+- https://www.easysoft.com/applications/openldap/back-sql-odbc.html
 - https://github.com/openldap/openldap/tree/master/servers/slapd/back-sql/rdbms_depend/mysql
 - https://github.com/openldap/openldap/blob/b06f5b0493937fc28f2cc86df1d7f464aa4504d8/servers/slapd/back-sql/config.c#L225
 - https://www.darold.net/projects/ldap_pg/HOWTO/x178.html
 - http://www.flatmtn.com/article/setting-ldap-back-sql.html
 - https://www.openldap.org/lists/openldap-technical/201704/msg00016.html
 - https://serverfault.com/questions/614955/openldap-with-mysql-works-but-need-schema-advice
+- http://blog.mikotek.com.tw/2014/05/31/openldap-with-microsoft-sql-server-backend-database-on-centos/
 
 Other interesting and related stuffs:
 - https://github.com/openstack/ldappool (LDAP pools for foreign connections)
@@ -185,6 +187,10 @@ NBD Resources
 - https://linux.die.net/man/5/slapd-ndb
 - https://mysqlhighavailability.com/accessing-the-same-data-through-ldap-and-sql/
 
+
+Others
+------
+- https://lsc-project.org
 
 Status
 ------
