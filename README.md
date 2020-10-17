@@ -177,6 +177,8 @@ Resources
 - https://serverfault.com/questions/614955/openldap-with-mysql-works-but-need-schema-advice
 - http://blog.mikotek.com.tw/2014/05/31/openldap-with-microsoft-sql-server-backend-database-on-centos/
 
+- https://gist.github.com/mahirrudin/9b7754e54f1e8e532049484864beba42
+
 Other interesting and related stuffs:
 - https://github.com/openstack/ldappool (LDAP pools for foreign connections)
 
